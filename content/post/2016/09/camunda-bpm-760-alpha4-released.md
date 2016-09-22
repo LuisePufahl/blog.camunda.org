@@ -36,6 +36,8 @@ In addition please check out following resources to learn about fresh API adjust
 
 # Reporting for Tasks
 
+{{< figure class="teaser no-border" src="batch_cancelation.png" alt="Batch Process Instances Cancellation" caption="" >}}
+
 The new alpha version comes along with a new reporting feature for Tasks.
 It is now possible to query reports of completed tasks, which are completed before or after a given date.
 
@@ -66,6 +68,46 @@ Each report object contains a number of tasks which are completed in the time sp
 ```
 
 For more information about the task reports and the REST API see the [reference guide](https://docs.camunda.org/manual/latest/reference/rest/history/task/get-task-report/).
+
+# Imporvement of Metric API
+
+In the new alpha release the Metric API is improved and a new feature comes along, the metric interval query.
+
+Currently there are lot of metrics, which are written at execution time (if enabled), like `activity-instance-start`, `job-acquisition-attempt`, `job-acquired-success`, `job-acquired-failure`, `job-execution-rejected`, `job-successful`, `job-failed`, `job-locked-exclusive` and `executed-decision-elements`. 
+A new metric is introduced the `activity-instance-end` metric, which is incremented every time an activity ends. With the help of the metric interval query it is now possible to retrieve a list of metrics, on which the metric values are aggregated in defined intervals.
+This feature enables new possibilities to display execution data, see for example the pictures below.
+
+See the following example for the usage of the new metric interval query:
+```java
+    List<MetricIntervalValue> interval =  managementService.createMetricsQuery()
+                                                           .startDate(startTime)
+                                                           .endDate(endTime)
+                                                           .name(Metrics.ACTIVTY_INSTANCE_START)
+                                                           .interval();
+```
+As you can see it is possible to specify start and end time and also the name of the metric. The start and end time represents the borders of the metric interval query. The given `name` corresponds to a specific metric, only the metrics with the given name are aggregated,
+if the name is not set the returned list contains entries for each interval and metric. The `MetricsQuery#interval` method returns a list of intervals with aggregated metric values. In that case the default interval length is used, which is 15 minutes (900 seconds).
+
+Say the `startTime` is `Thu Sep 22 13:30:00 CEST 2016` and the `endTime` is `Thu Sep 22 14:00:00 CEST 2016` then the returned list contains the intervals 
+`Thu Sep 22 13:30:00 CEST 2016` and`Thu Sep 22 13:45:00 CEST 2016`, since the `endTime` is exclusive.
+
+To define a custom interval you can use the `MetricsQuery#interval(long)` method. The parameter represents the interval length in seconds, which means a call of `MetricsQuery#interval(1800)`
+will aggregate the metrics in 30 minutes intervals. So the returned interval will be in that case `Thu Sep 22 13:30:00 CEST 2016`.
+The metric interval query return a list of intervals with a maximum of 200 entries, they are ordered descending by the interval timestamp.
+
+The new metric interval query is also available as REST resource.
+
+See the following pictures for an example of the usage of metric interval queries:
+
+{{< figure class="teaser no-border" src="metricActivityStart.png" alt="Activity Start Interval Metric" caption="" >}}
+
+The picture above shows the interval query for the `activity-instance-start` metric, this can be used to see how often activities are started in
+an interval. In that case the interval is set to 30 minutes.
+
+{{< figure class="teaser no-border" src="metricIntervalExample.png" alt="Metric Interval Example" caption="" >}}
+
+The picture above shows the result of the default metric interval query, which returns a list with 15 minutes intervals and aggregated values for
+that interval and each metric.
 
 # Support for Decisions with Literal Expressions
 
