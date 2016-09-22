@@ -69,7 +69,7 @@ Each report object contains a number of tasks which are completed in the time sp
 
 For more information about the task reports and the REST API see the [reference guide](https://docs.camunda.org/manual/latest/reference/rest/history/task/get-task-report/).
 
-# Imporvement of Metric API
+# Improvement of Metric API
 
 In the new alpha release the Metric API is improved and a new feature comes along, the metric interval query.
 
