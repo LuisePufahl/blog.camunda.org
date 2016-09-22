@@ -21,6 +21,18 @@ You can [Download Camunda For Free](https://camunda.org/download/)
 or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 
 <!--more-->
+# Batch cancellation of process instances
+
+The new alpha version comes along with a new batch operation.
+It is now possible to cancel process instances asynchronously based on search criteria and\or list of process instance Id's.
+
+{{< figure class="teaser no-border" src="batch_cancelation.png" alt="Batch Process Instances Cancellation" caption="" >}}
+
+this page is accessible from process instances search on dashboard in cockpit. [Info](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/dashboard/#search)
+
+In addition please check out following resources to learn about fresh API adjustments:
+
+ * it is possible to cancel process instances asynchronously using [REST API](https://docs.camunda.org/manual/7.5/reference/rest/process-instance/post-delete/)
 
 # Reporting for Tasks
 
@@ -31,7 +43,7 @@ It is now possible to query reports of completed tasks, which are completed befo
 
 Two different task reports are now available:
 
- * duration report contains the average, minimum and maximum duration of all completed tasks for a given timeframe. 
+ * duration report contains the average, minimum and maximum duration of all completed tasks for a given timeframe.
    (Monthly and quarterly aggregation of the duration times are supported.)
  * completed task report indicates how many tasks are completed in a time span
 
@@ -62,7 +74,7 @@ This kind of decision allows to specify the decision logic as an expression. The
 
 ```xml
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn11.xsd" id="dish" name="Desired Dish" namespace="party">
-  
+
   <decision id="season" name="Season">
     <variable name="season" typeRef="string" />
     <literalExpression expressionLanguage="groovy">
@@ -74,7 +86,7 @@ This kind of decision allows to specify the decision logic as an expression. The
 ```
 
 The `literalExpression` element contains the expression and allows to set the expression language. The name of the result variable and their type is specified by the `variable` element.
-You can use the expression to aggregate the result of required decisions, or to invoke a bean which provides the decision logic. 
+You can use the expression to aggregate the result of required decisions, or to invoke a bean which provides the decision logic.
 
 To evaluate decisions with literal expressions, the DMN engine provides new methods that work with any kind of decision logic:
 
@@ -101,8 +113,8 @@ Probably the most interesting new feature is [Variable On-Parts](http://docs.cam
     <camunda:variableOnPart variableName="interestRate">
       <camunda:variableEvent>update</camunda:variableEvent>
     </camunda:variableOnPart>
-  </extensionElements>	
-</sentry> 
+  </extensionElements>
+</sentry>
 ```
 
 The above sentry has an on part which is satisfied as the variable `interestRate` gets updated.
@@ -138,4 +150,3 @@ We have also started work providing monitoring and operation features for CMMN i
 # Feedback Welcome
 
 Please try out the awesome new features of this release and provide feedback by commenting on this post or reaching out to us in the [forum](https://forum.camunda.org/).
-
