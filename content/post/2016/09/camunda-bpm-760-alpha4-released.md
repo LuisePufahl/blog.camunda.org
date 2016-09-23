@@ -22,14 +22,41 @@ or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 <!--more-->
 # Batch Cancellation of Process Instances
 
-The new alpha version comes along with a new batch operation.
+The new alpha version comes along with a new batch operation. The feature is only available in the Enterprise Edition of Cockpit.
+
 It is now possible to cancel process instances asynchronously based on search criteria and\or list of process instance Ids. This allows users to cancel a huge number of process instances.
 
-{{< figure class="teaser no-border" src="batch_cancelation.png" alt="Batch Process Instances Cancellation" caption="" >}}
+{{< figure class="teaser" src="batch_cancelation.png" alt="Batch Process Instances Cancellation" caption="" >}}
 
 The page is accessible from process instances search on dashboard in cockpit. [Info](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/dashboard/#search)
 
 Batch Cancel operations are also available in the Java and [REST API](https://docs.camunda.org/manual/latest/reference/rest/process-instance/post-delete/).
+
+# CMMN Monitoring in Cockpit
+
+This release introduces Monitoring Capabilities for CMMN in Cockpit. The feature is only available in the Enterprise Edition of Cockpit.
+
+On the dashboard, a new tile names "Cases" is available:
+
+{{< figure class="teaser" src="cmmn-cockpit-dashboard.png" alt="CMMN Cockpit" caption="" >}}
+
+Clicking on "Case Definitions" leads us to the _Cases Dashboard_ where we can see a list of deployed Case Definitions and seach for case instances: 
+
+{{< figure class="teaser" src="cmmn-cockpit-case-dashboard.png" alt="CMMN Cockpit" caption="" >}}
+
+When we select a Case Definition, the _Case Definition View_ opens. This view shows the digram of the latest version of the case definition. On the diagram, we can see how many times a particular Plan Item (Task) has be created and completed. Also, we can search for Case Instances:
+
+{{< figure class="teaser" src="cmmn-cockpit-definition-view.png" alt="CMMN Cockpit" caption="" >}}
+
+Finally, if we drill down into a particular Case Instance, the _Case Instance View_ opens. This view provides all relevant information about this particular case instance. In addition, it is possible to modify variables and terminate the Case Instance:
+
+{{< figure class="teaser" src="cmmn-cockpit-instance-view.png" alt="CMMN Cockpit" caption="" >}}
+
+# CMMN Human Tasks in Tasklist
+
+As a cherry on top, Task List now displays the CMMN diagram if the current task is part of a CMMN Case:
+
+{{< figure class="teaser" src="cmmn-tasklist.png" alt="CMMN Cockpit" caption="" >}}
 
 # Improved Metrics API
 
