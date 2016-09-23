@@ -10,7 +10,7 @@ Camunda 7.6.0-alpha4 is here and it is packed with new features. The highlights 
 
 * Batch Cancellation of Process Instances
 * CMMN Monitoring in Cockpit
-* New Welcome Page for the Webapplication
+* New Home Page for the Webapplication
 * Improved Metrics API
 * [25 Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.6.0-alpha4)
 
@@ -57,6 +57,18 @@ Finally, if we drill down into a particular Case Instance, the _Case Instance Vi
 As a cherry on top, Task List now displays the CMMN diagram if the current task is part of a CMMN Case:
 
 {{< figure class="teaser" src="cmmn-tasklist.png" alt="CMMN Cockpit" caption="" >}}
+
+# New Home Page for the Webapplicaiton
+
+We have added a new "Home Page" to the Camunda Webapplication:
+
+{{< figure class="teaser" src="webapp-welcome.png" alt="CMMN Cockpit" caption="" >}}
+
+This is the first page the user sees when opening the webapplication. It provides 3 basic functionalities:
+
+* Overview over which applications are available to me.
+* Possibility to edit my profile and change my password.
+* List of additional links which can be customized.
 
 # Improved Metrics API
 
