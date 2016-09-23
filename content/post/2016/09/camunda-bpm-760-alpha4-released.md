@@ -40,7 +40,7 @@ On the dashboard, a new tile names "Cases" is available:
 
 {{< figure class="teaser" src="cmmn-cockpit-dashboard.png" alt="CMMN Cockpit" caption="" >}}
 
-Clicking on "Case Definitions" leads us to the _Cases Dashboard_ where we can see a list of deployed Case Definitions and seach for case instances: 
+Clicking on "Case Definitions" leads us to the _Cases Dashboard_ where we can see a list of deployed Case Definitions and search for case instances: 
 
 {{< figure class="teaser" src="cmmn-cockpit-case-dashboard.png" alt="CMMN Cockpit" caption="" >}}
 
@@ -60,7 +60,7 @@ As a cherry on top, Task List now displays the CMMN diagram if the current task 
 
 # Improved Metrics API
 
-This alpha release intoduces the new metric interval query:
+This alpha release introduces the new metric interval query:
 
 ```java
 List<MetricIntervalValue> intervals =  managementService.createMetricsQuery()
@@ -74,7 +74,7 @@ The query returns a list of `MetricIntervalValue` objects each of which provides
 
 {{< figure class="teaser no-border" src="metricActivityStart.png" alt="Activity Start Interval Metric" caption="" >}}
 
-Simmilar data points can be retrieved for the other available metrics: `activity-instance-end` `job-acquisition-attempt`, `job-acquired-success`, `job-acquired-failure`, `job-execution-rejected`, `job-successful`, `job-failed`, `job-locked-exclusive` and `executed-decision-elements`.
+Similar data points can be retrieved for the other available metrics: `activity-instance-end` `job-acquisition-attempt`, `job-acquired-success`, `job-acquired-failure`, `job-execution-rejected`, `job-successful`, `job-failed`, `job-locked-exclusive` and `executed-decision-elements`.
 
 # Perspective
 
