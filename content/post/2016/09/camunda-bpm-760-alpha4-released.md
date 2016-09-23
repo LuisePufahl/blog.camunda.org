@@ -88,8 +88,6 @@ The query returns a list of `MetricIntervalValue` objects each of which provides
 
 Similar data points can be retrieved for the other available metrics: `activity-instance-end` `job-acquisition-attempt`, `job-acquired-success`, `job-acquired-failure`, `job-execution-rejected`, `job-successful`, `job-failed`, `job-locked-exclusive` and `executed-decision-elements`.
 
-# Perspective
-
 # Feedback Welcome
 
 Please try out the awesome new features of this release and provide feedback by commenting on this post or reaching out to us in the [forum](https://forum.camunda.org/).
