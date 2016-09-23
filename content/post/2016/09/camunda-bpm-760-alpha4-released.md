@@ -28,7 +28,7 @@ It is now possible to cancel process instances asynchronously, based on search c
 
 {{< figure class="teaser" src="batch_cancelation.png" alt="Batch Process Instances Cancellation" caption="" >}}
 
-The page is accessible from the process instance search on the dashboard in Cockpit. [Info](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/dashboard/#search)
+The page is accessible from the [process instance search](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/dashboard/#search) on the dashboard in Cockpit.
 
 Batch Cancel operations are also available in the Java and [REST API](https://docs.camunda.org/manual/latest/reference/rest/process-instance/post-delete/).
 
